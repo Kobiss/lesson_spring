@@ -41,5 +41,9 @@ public class TankRepositoryTest {
 
         System.out.println(Arrays.toString(tankList1.toArray()));
 
+        Tank tank = tankRepository.findById(1);
+        System.out.println(tank.toString());
+
+
     }
 }
