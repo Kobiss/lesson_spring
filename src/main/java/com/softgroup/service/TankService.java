@@ -43,4 +43,8 @@ public class TankService {
         return false;
     }
 
+    public Tank addOne(Tank tank){
+        return tankRepository.save(tank);
+    }
+
 }

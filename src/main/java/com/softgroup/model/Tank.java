@@ -1,5 +1,7 @@
 package com.softgroup.model;
 
+import com.softgroup.request.TankRequest;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +33,14 @@ public class Tank {
         this.speed = speed;
         this.color = color;
         this.weigth = weigth;
+    }
+
+    public Tank(TankRequest tankRequest) {
+        this.name = tankRequest.getName();
+        this.country = tankRequest.getCountry();
+        this.speed = tankRequest.getSpeed();
+        this.color = tankRequest.getColor();
+        this.weigth = tankRequest.getWeigth();
     }
 
     public int getId() {
