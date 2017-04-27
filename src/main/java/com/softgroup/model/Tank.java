@@ -4,9 +4,10 @@ import com.softgroup.request.TankRequest;
 import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Tank {
+public class Tank implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -18,8 +19,8 @@ public class Tank {
     private String color;
     private int price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="OWNER_ID")
     private User owner;
 
 
@@ -88,6 +89,14 @@ public class Tank {
 
     public void setPrice(int weigth) {
         this.price = weigth;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     @Override

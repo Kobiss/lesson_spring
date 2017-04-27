@@ -38,7 +38,8 @@ public class ManagerService {
     private boolean buyTransaction(User user, Tank tank) {
         try {
             user.setMoney(user.getMoney()-tank.getPrice());
-            user.getTanks().add(tank);
+            tank.setOwner(user);
+            tankService.save(tank);
             userService.save(user);
             return true;
         } catch (Exception e) {

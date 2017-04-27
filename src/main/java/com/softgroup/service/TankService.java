@@ -47,4 +47,7 @@ public class TankService {
         return tankRepository.save(tank);
     }
 
+    public Tank save(Tank tank) {
+        return tankRepository.save(tank);
+    }
 }

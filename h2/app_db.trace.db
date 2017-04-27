@@ -1429,3 +1429,11 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/jav
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 63 more
+2017-04-27 17:52:19 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT * FROM TANK OWNER_ID HIBERNATE_SEQUENCES[*] TANK"
+Syntax error in SQL statement "SELECT * FROM TANK OWNER_ID HIBERNATE_SEQUENCES[*] TANK"; SQL statement:
+SELECT * FROM TANK OWNER_ID HIBERNATE_SEQUENCES TANK [42000-195]
+2017-04-27 17:52:26 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "SELECT * FROM TANK OWNER_ID HIBERNATE_SEQUENCES[*] TANK"
+Syntax error in SQL statement "SELECT * FROM TANK OWNER_ID HIBERNATE_SEQUENCES[*] TANK"; SQL statement:
+SELECT * FROM TANK OWNER_ID HIBERNATE_SEQUENCES TANK [42000-195]

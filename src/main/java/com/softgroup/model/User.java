@@ -1,13 +1,14 @@
 package com.softgroup.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by java-Andr on 27.04.2017.
  */
 @Entity
-public class User {
+public class User implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -17,7 +18,7 @@ public class User {
     private String pass;
     private int money;
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy="owner")
     private List<Tank> tanks;
 
     public User() {
@@ -61,5 +62,18 @@ public class User {
 
     public void setTanks(List<Tank> tanks) {
         this.tanks = tanks;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", pass='" + pass + '\'' +
+                ", money=" + money +
+                ", tanks=" + tanks +
+                '}';
     }
 }
