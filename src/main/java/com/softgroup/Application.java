@@ -24,17 +24,17 @@ public class Application {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
     }
-
-    @Autowired
-    private UserService userService;
-
-    @PostConstruct
-    public void init(){
-        User user = new User();
-        user.setLogin("name");
-        user.setPass("123");
-        user.setMoney(1000000);
-        userService.save(user);
-    }
+//
+//    @Autowired
+//    private UserService userService;
+//
+//    @PostConstruct
+//    public void init(){
+//        User user = new User();
+//        user.setLogin("name");
+//        user.setPass("123");
+//        user.setMoney(1000000);
+//        userService.save(user);
+//    }
 
 }

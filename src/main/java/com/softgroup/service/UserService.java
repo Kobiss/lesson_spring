@@ -32,4 +32,15 @@ public class UserService {
         return userRepository.findByLogin(login);
     }
 
+    public User validateAuth(String login, String pass) {
+        if (login.isEmpty() || pass.isEmpty())
+            return null;
+
+        User user = userRepository.findByLogin(login);
+        if(user==null||!user.getPass().equals(pass))
+            return null;
+
+        return user;
+    }
+
 }
