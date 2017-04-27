@@ -4,6 +4,7 @@ import com.softgroup.model.Tank;
 import com.softgroup.model.User;
 import com.softgroup.response.MessResponse;
 import com.softgroup.response.Response;
+import com.softgroup.response.TankResponse;
 import com.softgroup.service.ManagerService;
 import com.softgroup.service.TankService;
 import com.softgroup.service.UserService;
@@ -38,9 +39,19 @@ public class ManagerController  {
         if(user==null)
             return new MessResponse(401, "Auth fail");
 
-
-
         int response = managerService.buyTank(user, tank_id);
-
+        switch (response){
+            case 405:
+                return new MessResponse(response, "Item does not found");
+            case 406:
+                return new MessResponse(response, "You got no money");
+//            case 407:
+//                return new MessResponse(response, "Unknown error");
+            case 200:
+                Tank tank = tankService.findById(tank_id);
+                return new TankResponse(200, tank);
+            default:
+                return new MessResponse(response, "Unknown error");
+        }
     }
 }
