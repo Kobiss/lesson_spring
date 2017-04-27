@@ -1,15 +1,9 @@
 package com.softgroup.model;
 
 import com.softgroup.request.TankRequest;
+import com.sun.istack.internal.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-/**
- * Created by java-Andr on 25.04.2017.
- */
+import javax.persistence.*;
 
 @Entity
 public class Tank {
@@ -22,17 +16,22 @@ public class Tank {
     private String country;
     private int speed;
     private String color;
-    private int weigth;
+    private int price;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id")
+    private User owner;
+
 
     public Tank() {
     }
 
-    public Tank(String name, String country, int speed, String color, int weigth) {
+    public Tank(String name, String country, int speed, String color, int price) {
         this.name = name;
         this.country = country;
         this.speed = speed;
         this.color = color;
-        this.weigth = weigth;
+        this.price = price;
     }
 
     public Tank(TankRequest tankRequest) {
@@ -40,7 +39,7 @@ public class Tank {
         this.country = tankRequest.getCountry();
         this.speed = tankRequest.getSpeed();
         this.color = tankRequest.getColor();
-        this.weigth = tankRequest.getWeigth();
+        this.price = tankRequest.getPrice();
     }
 
     public int getId() {
@@ -83,12 +82,12 @@ public class Tank {
         this.color = color;
     }
 
-    public int getWeigth() {
-        return weigth;
+    public int getPrice() {
+        return price;
     }
 
-    public void setWeigth(int weigth) {
-        this.weigth = weigth;
+    public void setPrice(int weigth) {
+        this.price = weigth;
     }
 
     @Override
@@ -99,7 +98,7 @@ public class Tank {
                 ", country='" + country + '\'' +
                 ", speed=" + speed +
                 ", color='" + color + '\'' +
-                ", weigth=" + weigth +
+                ", price=" + price +
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.softgroup.controller;
 
 import com.softgroup.model.Tank;
+import com.softgroup.model.User;
 import com.softgroup.repository.TankRepository;
 import com.softgroup.request.TankRequest;
 import com.softgroup.response.MessResponse;
@@ -18,10 +19,6 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-/**
- * Created by java-Andr on 25.04.2017.
- */
 
 @RestController
 @RequestMapping(value = "tank")
@@ -78,10 +75,6 @@ public class TankController {
             e.printStackTrace();
             return new MessResponse(501, "Fail to create Tank");
         }
-
-
-
-
     }
 
 }

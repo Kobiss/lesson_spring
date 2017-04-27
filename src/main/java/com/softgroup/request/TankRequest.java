@@ -8,17 +8,17 @@ public class TankRequest {
     private String country;
     private int speed;
     private String color;
-    private int weigth;
+    private int price;
 
     public TankRequest() {
     }
 
-    public TankRequest(String name, String country, int speed, String color, int weigth) {
+    public TankRequest(String name, String country, int speed, String color, int price) {
         this.name = name;
         this.country = country;
         this.speed = speed;
         this.color = color;
-        this.weigth = weigth;
+        this.price = price;
     }
 
     public String getName() {
@@ -53,12 +53,12 @@ public class TankRequest {
         this.color = color;
     }
 
-    public int getWeigth() {
-        return weigth;
+    public int getPrice() {
+        return price;
     }
 
-    public void setWeigth(int weigth) {
-        this.weigth = weigth;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public boolean validate(){
