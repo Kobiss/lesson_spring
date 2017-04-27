@@ -1,5 +1,8 @@
 package com.softgroup;
 
+import com.softgroup.model.User;
+import com.softgroup.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,9 +25,16 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    @Autowired
+    private UserService userService;
+
     @PostConstruct
     public void init(){
-        
+        User user = new User();
+        user.setLogin("name");
+        user.setPass("123");
+        user.setMoney(1000000);
+        userService.save(user);
     }
 
 }
